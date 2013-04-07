@@ -1,5 +1,20 @@
-var five = require("./johnny-five"),
+var databaseUrl = "mydb";
+var collections = ["debug_log"];
+var db = require("mongojs").connect(databaseUrl, collections);
+var http = require('http');
+http.createServer(function (req, res){
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.end('Mongo\n');
+}).listen(3000, "localhost");
+//db.debug_log.insert({command: "fireUp"});
+function mongo(){
+	db.debug_log.find({}, console.log);
+}
+console.log('Server running at localhost:3000');
 
+//db.debug_log.find({}, console.log);
+
+var five = require("./johnny-five"),
 	board, motor, led,laser, button, photoresistor;
 
 board = new five.Board();
@@ -38,35 +53,43 @@ board.on("ready", function() {
 	left.on("down", function(){
 		motorL.start();
 		console.log("downL");
+	    db.debug_log.insert({command: "downL"});
 	});
 	left.on("up", function(){
 		motorL.stop();
 		console.log("upL");
+	    db.debug_log.insert({command: "upL"});
 	});
 	//forward controls
 	forward.on("down", function(){
 		motorR.start();
 		motorL.start();
 		console.log("downF");
+		//db.debug_log.remove({});
+	    db.debug_log.insert({command: "downF"});
 	});
 	forward.on("up", function(){
 		motorR.stop();
 		motorL.stop();
 		console.log("upF");
+	    db.debug_log.insert({command: "upF"});
 	});
 	right.on("down", function(){
 		motorR.start();
 		console.log("downR");
+	    db.debug_log.insert({command: "downR"});
 	});
 	right.on("up", function(){
 		motorR.stop();
 		console.log("upR");
+	    db.debug_log.insert({command: "upR"});
 	});
 
 	fire.on("down", function(){
-		//console.log("fireDown");
+		console.log("fireDown");
 		fireLight.on();
 		laser.on();
+	    db.debug_log.insert({command: "fireDown"});
 		setTimeout(function(){
 			laser.off();
 			fireLight.off();
@@ -74,9 +97,11 @@ board.on("ready", function() {
 	});
 
 	fire.on("up", function(){
-		//console.log("fireUp");
+		console.log("fireUp");
 		fireLight.off();
 		laser.off();
+	    db.debug_log.insert({command: "fireUp"});
+		db.debug_log.find({}, console.log);
 	});
 
 	//motor functions
@@ -99,11 +124,11 @@ board.on("ready", function() {
     	//console.log( value, this.normalized );
 		if(value <60){
 			console.log("HIT!!!");
-			hitLight.strobe(100);
+			hitLight.on();
+			//hitLight.strobe(100);
 			setTimeout(function(){
-				hitLight.on();
-				hitLight.off();
 				console.log("off");
+				hitLight.off();
 			}, 3000);
 		}
   	});
