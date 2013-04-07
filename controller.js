@@ -1,12 +1,18 @@
 var five = require("./johnny-five"),
 
-	board, motor, led,laser, button;
+	board, motor, led,laser, button, photoresistor;
 
 board = new five.Board();
 
 board.on("ready", function() {
+	//phptoresistor
+	photoresistor = new five.Sensor({
+		pin: "A2",
+		freq: 250
+	});
 	//led
 	fireLight = new five.Led(6);
+	hitLight = new five.Led(10);
 
 	laser = new five.Led(11); 
 	//motors
@@ -19,6 +25,7 @@ board.on("ready", function() {
 	right = new five.Button(2);
 	fire = new five.Button(5);
 	board.repl.inject({
+		pot: photoresistor,
 		laser: laser,
 		motorL: motorL,
 		motorR: motorR,
@@ -30,7 +37,7 @@ board.on("ready", function() {
 	//left controls
 	left.on("down", function(){
 		motorL.start();
-		//console.log("downL");
+		console.log("downL");
 	});
 	left.on("up", function(){
 		motorL.stop();
@@ -40,32 +47,36 @@ board.on("ready", function() {
 	forward.on("down", function(){
 		motorR.start();
 		motorL.start();
-		//console.log("downF");
+		console.log("downF");
 	});
 	forward.on("up", function(){
 		motorR.stop();
 		motorL.stop();
-		//console.log("upF");
+		console.log("upF");
 	});
 	right.on("down", function(){
 		motorR.start();
-		//console.log("downR");
+		console.log("downR");
 	});
 	right.on("up", function(){
 		motorR.stop();
-		//console.log("upR");
+		console.log("upR");
 	});
 
 	fire.on("down", function(){
 		//console.log("fireDown");
 		fireLight.on();
 		laser.on();
+		setTimeout(function(){
+			laser.off();
+			fireLight.off();
+		},300);
 	});
 
 	fire.on("up", function(){
-		console.log("fireUp");
+		//console.log("fireUp");
 		fireLight.off();
-		//laser.off();
+		laser.off();
 	});
 
 	//motor functions
@@ -83,5 +94,18 @@ board.on("ready", function() {
 	motorR.on("stop", function( err, timestamp ) {
 		//console.log( "stopR", timestamp );
 	});
+	
+  	photoresistor.on("read", function( err, value ) {
+    	//console.log( value, this.normalized );
+		if(value <60){
+			console.log("HIT!!!");
+			hitLight.strobe(100);
+			setTimeout(function(){
+				hitLight.on();
+				hitLight.off();
+				console.log("off");
+			}, 3000);
+		}
+  	});
 	
 });
