@@ -1,19 +1,16 @@
 var databaseUrl = "mydb";
 var collections = ["debug_log"];
 var db = require("mongojs").connect(databaseUrl, collections);
-var http = require('http');
-http.createServer(function (req, res){
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.end('Mongo\n');
-}).listen(3000, "localhost");
+var Canvas = require('./node-canvas/lib/canvas')
+  , canvas = new Canvas(2000, 1000)
+  , ctx = canvas.getContext('2d')
+  , http = require('http');
 //db.debug_log.insert({command: "fireUp"});
-function mongo(){
-	db.debug_log.find({}, console.log);
-}
 console.log('Server running at localhost:3000');
-
+draw();
+var damage1 = 0;
+var damage2 = 0;
 //db.debug_log.find({}, console.log);
-
 var five = require("./johnny-five"),
 	board, motor, led,laser, button, photoresistor;
 
@@ -123,14 +120,68 @@ board.on("ready", function() {
   	photoresistor.on("read", function( err, value ) {
     	//console.log( value, this.normalized );
 		if(value <60){
-			console.log("HIT!!!");
+			console.log("****     ****  *********  ******** **");
+			console.log("****     ****     **         **    **");
+			console.log("*************     **         **    **");
+			console.log("*************     **         **    **");
+			console.log("*************     **         **    **");
+			console.log("****     ****     **         **        ");
+			console.log("****     ****     **         **	   **");
+			console.log("****     ****  ********      **	   **");
+			if(damage2 + 110 >= 550){
+				damage2 = 550;
+			}else{
+				damage2 = damage2 + 110;
+			}
 			hitLight.on();
+			
 			//hitLight.strobe(100);
 			setTimeout(function(){
-				console.log("off");
 				hitLight.off();
 			}, 3000);
 		}
-  	});
-	
+  	});	
 });
+function draw(){
+	ctx.clearRect(0, 0, 2000, 1000);
+
+	ctx.fillStyle = "rgb(1, 1, 1)";
+    ctx.fillRect(0,0, 2000 , 1000);
+	//green health
+	ctx.fillStyle = "rgb(2, 200, 2)";
+    ctx.fillRect(60, 150, 550 , 35);
+	
+	ctx.fillStyle = "rgb(2, 200, 2)";
+    ctx.fillRect(740, 150, 550 , 35);
+	//red damage
+	ctx.fillStyle = "rgb(200, 2, 2)";
+    ctx.fillRect(60, 150, damage1, 35);
+	
+	ctx.fillStyle = "rgb(200, 2, 2)";
+    ctx.fillRect(740+550 -damage2, 150, damage2 , 35);
+	//title + player names
+	ctx.font = "bold 26pt Verdian";
+	ctx.fillStyle = "green";
+	ctx.fillText("Laser Tanks", 550, 60);
+	
+	if(damage2 == 550){
+
+		//console.log("player one wins");
+		ctx.font = "bold 30pt Verdian";
+		ctx.fillStyle = "red";
+		ctx.fillText("Player One Wins!!!", 440, 400);
+
+	}
+}
+setInterval(function(){
+	draw();
+}, 1000);
+
+
+http.createServer(function (req, res) {
+ // clock(ctx);
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(''
+    + '<meta http-equiv="refresh" content="1;" />'
+    + '<img src="' + canvas.toDataURL() + '" />');
+}).listen(3000);
