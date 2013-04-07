@@ -98,7 +98,7 @@ board.on("ready", function() {
 		fireLight.off();
 		laser.off();
 	    db.debug_log.insert({command: "fireUp"});
-		db.debug_log.find({}, console.log);
+		//db.debug_log.find({}, console.log);
 	});
 
 	//motor functions
@@ -120,6 +120,10 @@ board.on("ready", function() {
   	photoresistor.on("read", function( err, value ) {
     	//console.log( value, this.normalized );
 		if(value <60){
+			ctx.font = "bold 18pt Verdian";
+			ctx.fillStyle = "red";
+			ctx.fillText("HIT -100", 950, 90);
+			console.log("");
 			console.log("****     ****  *********  ******** **");
 			console.log("****     ****     **         **    **");
 			console.log("*************     **         **    **");
@@ -128,6 +132,7 @@ board.on("ready", function() {
 			console.log("****     ****     **         **        ");
 			console.log("****     ****     **         **	   **");
 			console.log("****     ****  ********      **	   **");
+			console.log("");
 			if(damage2 + 110 >= 550){
 				damage2 = 550;
 			}else{
@@ -164,12 +169,19 @@ function draw(){
 	ctx.fillStyle = "green";
 	ctx.fillText("Laser Tanks", 550, 60);
 	
+	ctx.font = "bold 22pt Verdian";
+	ctx.fillStyle = "red";
+	ctx.fillText("Manny", 100, 130);
+	
+	ctx.font = "bold 22pt Verdian";
+	ctx.fillStyle = "red";
+	ctx.fillText("Player 2", 850,130);
 	if(damage2 == 550){
 
 		//console.log("player one wins");
 		ctx.font = "bold 30pt Verdian";
 		ctx.fillStyle = "red";
-		ctx.fillText("Player One Wins!!!", 440, 400);
+		ctx.fillText("Manny Wins!!!", 540, 400);
 
 	}
 }
