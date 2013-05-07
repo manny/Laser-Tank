@@ -1,9 +1,7 @@
 Laser Tanks
 ===========
 
-An Arduino-based laser tag game with remote control tanks from HackNY
-Spring 2013-winnger of best hardware hack!
-------------------
+An Arduino-based laser tag game with remote control tanks from HackNY Spring 2013-winner of best hardware hack!
 
 Laser Tanks uses an Arduino Uno and NodeJS (v0.8.2) to run. Newest
 versions of Node may not work with laser tanks due to a bug that
