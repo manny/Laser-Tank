@@ -1,0 +1,9 @@
+If you're having problems with the edges of your prints peeling, try using Helper Disks!
+
+First, open a model. Then add a Helper Disk from this menu and use the Move tool to move the Helper Disk to one corner of your object, so the disk just slightly overlaps with the corner of the object on the plate.
+
+Use Copy and Paste to create more helper disks, and add one to each corner of your model. Then go ahead and print! The Helper Disks will increase the surface area of your model and help it stick to the platform without peeling. When your print finishes, you can remove the Helper Disks by cutting or peeling them off.
+
+Still having trouble getting your prints to stick? There are some more things to try in our Troubleshooting guide for the Replicator 2X: http://www.makerbot.com/support/replicator2x/troubleshooting
+
+These Helper Disks were designed by Thingiverse user ctheroux: http://www.thingiverse.com/thing:51066

@@ -1,0 +1,111 @@
+
+obj/src/main.cpp:116: info
+void modifyPluginPath()
+Sun Apr  7 01:34:41 2013
+Original plugin path: 
+
+obj/src/core/applicationmodel.cpp:433: info
+void ApplicationModel::initializeLogging()
+Sun Apr  7 01:34:41 2013
+On-disk log initialized in /home/admin/Things/Logs/MakerWare-2013-04-07_01-34-41.log
+
+obj/src/core/conveyorhandle.cpp:59: info
+void conveyor::ui::ConveyorHandle::set(conveyor::Conveyor*)
+Sun Apr  7 01:34:41 2013
+Emitting conveyorChanged(0x7f59800019f0)
+
+obj/src/main.cpp:278: info
+int main(int, char**)
+Sun Apr  7 01:34:41 2013
+Arguments=
+
+obj/src/main.cpp:279: info
+int main(int, char**)
+Sun Apr  7 01:34:41 2013
+VERSION_STR=2.0.2.10, CHECKIN_STR=Version2.0.2-ac62c10c7d605ead4766c0ff7a17c883da013693, BUILD_STR=10
+
+obj/src/model/machine_selection.cpp:32: info
+MachineSelection::MachineSelection(conveyor::ui::ConveyorHandle*, Preferences*, QObject*)
+Sun Apr  7 01:34:41 2013
+Initialized MachineSelection 0x7f598002b460 with machine MakerBot Replicator Dual (0x7f5980025300)
+
+obj/src/util/gl_util.cpp:48: info
+void logQGLFormat(const QGLFormat&)
+Sun Apr  7 01:34:41 2013
+QGLFormat: accum=0, accumBufferSize=-1, alpha=1, alphaBufferSize=8, blueBufferSize=8, depth=1, depthBufferSize=24, directRendering=1, doubleBuffer=1, greenBufferSize=8, hasOverlay=0, majorVersion=1, minorVersion=0, plane=0, profile=0, redBufferSize=8, rgba=1, sampleBuffers=0, samples=-1, stencil=1, stencilBufferSize=8, stereo=0, swapInterval=1
+
+obj/src/core/applicationmodel.cpp:275: info
+void ApplicationModel::createEditor(QString)
+Sun Apr  7 01:34:41 2013
+EditorWindow created
+
+obj/src/main.cpp:298: info
+int main(int, char**)
+Sun Apr  7 01:34:41 2013
+Time to finish creating EditorWindows: 0.419s
+
+obj/src/core/applicationmodel.cpp:464: info
+void ApplicationModel::parseUpdatesResponse(QNetworkReply*)
+Sun Apr  7 01:34:42 2013
+Begin parsing update response
+
+obj/src/objtree/scene.cpp:264: error
+const LibThing::FileFormat* Scene::addFile(const QString&)
+Sun Apr  7 01:34:50 2013
+LibThing::IOError(kOpenForReadFailed, "/home/admin/Parametric_Robot_Wheel_Spoked/SpokedWheel5-4mm-3.5CS-93ID.stl")
+
+obj/src/objtree/scene.cpp:267: info
+const LibThing::FileFormat* Scene::addFile(const QString&)
+Sun Apr  7 01:34:50 2013
+addFile(/home/admin/Parametric_Robot_Wheel_Spoked/SpokedWheel5-4mm-3.5CS-93ID.stl) failed to load as a .thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1239: info
+void writeThing(LibThing::Thing*, const QString&, const LibThing::FileFormat*)
+Sun Apr  7 01:35:23 2013
+Save /tmp/conveyor-ui-{b7595214-c4f8-46d4-bfd8-48942f7b2af5}/SpokedWheel5-4mm-3.thing with format Thing
+
+obj/src/main/cpp/conveyorprivate.cpp:351: info
+conveyor::Job* conveyor::ConveyorPrivate::printToFile(conveyor::Printer*, const QString&, const QString&, const conveyor::SlicerConfiguration&, const QString&, bool, const QString&)
+Sun Apr  7 01:36:10 2013
+print_to_file params={
+   "driver_name" : "s3g",
+   "extruder_name" : "0",
+   "file_type" : "x3g",
+   "gcode_processor_names" : null,
+   "has_start_end" : false,
+   "input_file" : "/tmp/conveyor-ui-{b7595214-c4f8-46d4-bfd8-48942f7b2af5}/SpokedWheel5-4mm-3.thing",
+   "material_name" : "ABS",
+   "output_file" : "/tmp/conveyor-ui-{0b4d867d-6582-4e1f-8a51-fb6a60454902}/WheelSmall.x3g",
+   "profile_name" : "ReplicatorDual",
+   "slicer_name" : "miraclegrue",
+   "slicer_settings" : {
+      "extruder" : "0",
+      "extruder_temperature" : 230,
+      "infill" : 0.10,
+      "layer_height" : 0.270,
+      "path" : null,
+      "platform_temperature" : 110,
+      "print_speed" : 80,
+      "raft" : false,
+      "shells" : 2,
+      "slicer" : "MIRACLEGRUE",
+      "support" : false,
+      "travel_speed" : 100
+   }
+}
+
+
+obj/src/print_dialog/export_job_mover.cpp:110: info
+void conveyor::ui::ExportJobMover::jobFinished(conveyor::Job*)
+Sun Apr  7 01:36:16 2013
+job id=2
+
+obj/src/print_dialog/export_job_mover.cpp:114: info
+void conveyor::ui::ExportJobMover::jobFinished(conveyor::Job*)
+Sun Apr  7 01:36:16 2013
+srcPath=/tmp/conveyor-ui-{0b4d867d-6582-4e1f-8a51-fb6a60454902}/WheelSmall.x3gdstFile=/home/admin/Things/WheelSmall.x3g
+
+obj/src/core/applicationmodel.cpp:370: info
+void ApplicationModel::editorWindowClosed(QObject*)
+Sun Apr  7 01:38:02 2013
+EditorWindow close detected by AppModel

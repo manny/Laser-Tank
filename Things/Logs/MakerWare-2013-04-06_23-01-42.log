@@ -1,0 +1,141 @@
+
+obj/src/main.cpp:116: info
+void modifyPluginPath()
+Sat Apr  6 23:01:42 2013
+Original plugin path: 
+
+obj/src/core/applicationmodel.cpp:433: info
+void ApplicationModel::initializeLogging()
+Sat Apr  6 23:01:42 2013
+On-disk log initialized in /home/admin/Things/Logs/MakerWare-2013-04-06_23-01-42.log
+
+obj/src/core/conveyorhandle.cpp:59: info
+void conveyor::ui::ConveyorHandle::set(conveyor::Conveyor*)
+Sat Apr  6 23:01:42 2013
+Emitting conveyorChanged(0x7f8f74004f80)
+
+obj/src/main.cpp:278: info
+int main(int, char**)
+Sat Apr  6 23:01:42 2013
+Arguments=
+
+obj/src/main.cpp:279: info
+int main(int, char**)
+Sat Apr  6 23:01:42 2013
+VERSION_STR=2.0.2.10, CHECKIN_STR=Version2.0.2-ac62c10c7d605ead4766c0ff7a17c883da013693, BUILD_STR=10
+
+obj/src/model/machine_selection.cpp:32: info
+MachineSelection::MachineSelection(conveyor::ui::ConveyorHandle*, Preferences*, QObject*)
+Sat Apr  6 23:01:42 2013
+Initialized MachineSelection 0x2497c10 with machine MakerBot Replicator 2 (0x24aa790)
+
+obj/src/util/gl_util.cpp:48: info
+void logQGLFormat(const QGLFormat&)
+Sat Apr  6 23:01:42 2013
+QGLFormat: accum=0, accumBufferSize=-1, alpha=1, alphaBufferSize=8, blueBufferSize=8, depth=1, depthBufferSize=24, directRendering=1, doubleBuffer=1, greenBufferSize=8, hasOverlay=0, majorVersion=1, minorVersion=0, plane=0, profile=0, redBufferSize=8, rgba=1, sampleBuffers=0, samples=-1, stencil=1, stencilBufferSize=8, stereo=0, swapInterval=1
+
+obj/src/core/applicationmodel.cpp:275: info
+void ApplicationModel::createEditor(QString)
+Sat Apr  6 23:01:43 2013
+EditorWindow created
+
+obj/src/main.cpp:298: info
+int main(int, char**)
+Sat Apr  6 23:01:43 2013
+Time to finish creating EditorWindows: 0.554s
+
+obj/src/core/preferences.cpp:301: info
+Version Preferences::postUpgradeMessageVersion() const
+Sat Apr  6 23:01:43 2013
+not a 4-part version string: 
+
+obj/src/core/applicationmodel.cpp:464: info
+void ApplicationModel::parseUpdatesResponse(QNetworkReply*)
+Sat Apr  6 23:01:43 2013
+Begin parsing update response
+
+obj/src/objtree/scene.cpp:264: error
+const LibThing::FileFormat* Scene::addFile(const QString&)
+Sat Apr  6 23:03:52 2013
+LibThing::IOError(kOpenForReadFailed, "/home/admin/Parametric_Robot_Wheel_Spoked/SpokedWheel8-4mm-3.5CS-93ID.stl")
+
+obj/src/objtree/scene.cpp:267: info
+const LibThing::FileFormat* Scene::addFile(const QString&)
+Sat Apr  6 23:03:52 2013
+addFile(/home/admin/Parametric_Robot_Wheel_Spoked/SpokedWheel8-4mm-3.5CS-93ID.stl) failed to load as a .thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1221: info
+void EditorWindow::showSaveDialog()
+Sat Apr  6 23:04:19 2013
+save file: /home/admin/Things/SpokedWheel8-4mm-3.thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1224: info
+void EditorWindow::showSaveDialog()
+Sat Apr  6 23:04:19 2013
+with extension: Thing (*.thing)
+
+obj/src/view/editorwindow/editorwindow.cpp:1239: info
+void writeThing(LibThing::Thing*, const QString&, const LibThing::FileFormat*)
+Sat Apr  6 23:04:19 2013
+Save /home/admin/Things/SpokedWheel8-4mm-3.thing with format Thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1239: info
+void writeThing(LibThing::Thing*, const QString&, const LibThing::FileFormat*)
+Sat Apr  6 23:04:21 2013
+Save /home/admin/Things/SpokedWheel8-4mm-3.thing with format Thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1239: info
+void writeThing(LibThing::Thing*, const QString&, const LibThing::FileFormat*)
+Sat Apr  6 23:05:08 2013
+Save /home/admin/Things/SpokedWheel8-4mm-3.thing with format Thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1239: info
+void writeThing(LibThing::Thing*, const QString&, const LibThing::FileFormat*)
+Sat Apr  6 23:05:09 2013
+Save /home/admin/Things/SpokedWheel8-4mm-3.thing with format Thing
+
+obj/src/view/editorwindow/editorwindow.cpp:1239: info
+void writeThing(LibThing::Thing*, const QString&, const LibThing::FileFormat*)
+Sat Apr  6 23:11:26 2013
+Save /tmp/conveyor-ui-{8dcdfaa7-39a7-4f2d-a8b4-ae67a220da01}/SpokedWheel8-4mm-3.thing with format Thing
+
+obj/src/main/cpp/conveyorprivate.cpp:351: info
+conveyor::Job* conveyor::ConveyorPrivate::printToFile(conveyor::Printer*, const QString&, const QString&, const conveyor::SlicerConfiguration&, const QString&, bool, const QString&)
+Sat Apr  6 23:12:22 2013
+print_to_file params={
+   "driver_name" : "s3g",
+   "extruder_name" : "0",
+   "file_type" : "x3g",
+   "gcode_processor_names" : null,
+   "has_start_end" : false,
+   "input_file" : "/tmp/conveyor-ui-{8dcdfaa7-39a7-4f2d-a8b4-ae67a220da01}/SpokedWheel8-4mm-3.thing",
+   "material_name" : "ABS",
+   "output_file" : "/tmp/conveyor-ui-{038859f7-771a-412b-94bf-626a301607ae}/WheelML.x3g",
+   "profile_name" : "ReplicatorDual",
+   "slicer_name" : "miraclegrue",
+   "slicer_settings" : {
+      "extruder" : "0",
+      "extruder_temperature" : 230,
+      "infill" : 0.10,
+      "layer_height" : 0.270,
+      "path" : null,
+      "platform_temperature" : 110,
+      "print_speed" : 80,
+      "raft" : false,
+      "shells" : 2,
+      "slicer" : "MIRACLEGRUE",
+      "support" : false,
+      "travel_speed" : 100
+   }
+}
+
+
+obj/src/print_dialog/export_job_mover.cpp:110: info
+void conveyor::ui::ExportJobMover::jobFinished(conveyor::Job*)
+Sat Apr  6 23:12:33 2013
+job id=1
+
+obj/src/print_dialog/export_job_mover.cpp:114: info
+void conveyor::ui::ExportJobMover::jobFinished(conveyor::Job*)
+Sat Apr  6 23:12:33 2013
+srcPath=/tmp/conveyor-ui-{038859f7-771a-412b-94bf-626a301607ae}/WheelML.x3gdstFile=/home/admin/Things/WheelML.x3g

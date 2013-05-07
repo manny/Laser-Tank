@@ -1,6 +1,6 @@
 var databaseUrl = "mydb";
 var collections = ["debug_log"];
-var db = require("mongojs").connect(databaseUrl, collections);
+//var db = require("mongojs").connect(databaseUrl, collections);
 var Canvas = require('./node-canvas/lib/canvas')
   , canvas = new Canvas(2000, 1000)
   , ctx = canvas.getContext('2d')
@@ -50,12 +50,12 @@ board.on("ready", function() {
 	left.on("down", function(){
 		motorL.start();
 		console.log("downL");
-	    db.debug_log.insert({command: "downL"});
+	//    db.debug_log.insert({command: "downL"});
 	});
 	left.on("up", function(){
 		motorL.stop();
-		console.log("upL");
-	    db.debug_log.insert({command: "upL"});
+		//console.log("upL");
+	    //`db.debug_log.insert({command: "upL"});
 	});
 	//forward controls
 	forward.on("down", function(){
@@ -63,30 +63,30 @@ board.on("ready", function() {
 		motorL.start();
 		console.log("downF");
 		//db.debug_log.remove({});
-	    db.debug_log.insert({command: "downF"});
+	  //  db.debug_log.insert({command: "downF"});
 	});
 	forward.on("up", function(){
 		motorR.stop();
 		motorL.stop();
-		console.log("upF");
-	    db.debug_log.insert({command: "upF"});
+		//console.log("upF");
+	   //db.debug_log.insert({command: "upF"});
 	});
 	right.on("down", function(){
 		motorR.start();
 		console.log("downR");
-	    db.debug_log.insert({command: "downR"});
+//	    db.debug_log.insert({command: "downR"});
 	});
 	right.on("up", function(){
 		motorR.stop();
-		console.log("upR");
-	    db.debug_log.insert({command: "upR"});
+		//console.log("upR");
+//	    db.debug_log.insert({command: "upR"});
 	});
 
 	fire.on("down", function(){
-		console.log("fireDown");
+		//console.log("fireDown");
 		fireLight.on();
 		laser.on();
-	    db.debug_log.insert({command: "fireDown"});
+//	    db.debug_log.insert({command: "fireDown"});
 		setTimeout(function(){
 			laser.off();
 			fireLight.off();
@@ -94,10 +94,10 @@ board.on("ready", function() {
 	});
 
 	fire.on("up", function(){
-		console.log("fireUp");
+		//console.log("fireUp");
 		fireLight.off();
 		laser.off();
-	    db.debug_log.insert({command: "fireUp"});
+//	    db.debug_log.insert({command: "fireUp"});
 		//db.debug_log.find({}, console.log);
 	});
 
@@ -119,7 +119,8 @@ board.on("ready", function() {
 	
   	photoresistor.on("read", function( err, value ) {
     	//console.log( value, this.normalized );
-		if(value <60){
+		//lower the value if room is too bright
+		if(value <45){
 			ctx.font = "bold 18pt Verdian";
 			ctx.fillStyle = "red";
 			ctx.fillText("HIT -100", 950, 90);
@@ -165,9 +166,10 @@ function draw(){
 	ctx.fillStyle = "rgb(200, 2, 2)";
     ctx.fillRect(740+550 -damage2, 150, damage2 , 35);
 	//title + player names
-	ctx.font = "bold 26pt Verdian";
+	ctx.font = "bold 24pt Verdian";
 	ctx.fillStyle = "green";
-	ctx.fillText("Laser Tanks", 550, 60);
+	ctx.fillText("Laser Tanks", 550, 40);
+	ctx.fillText("New York Tech Meetup", 450, 90);
 	
 	ctx.font = "bold 22pt Verdian";
 	ctx.fillStyle = "red";
@@ -175,7 +177,7 @@ function draw(){
 	
 	ctx.font = "bold 22pt Verdian";
 	ctx.fillStyle = "red";
-	ctx.fillText("Player 2", 850,130);
+	ctx.fillText("Player 2", 1100,130);
 	if(damage2 == 550){
 
 		//console.log("player one wins");
